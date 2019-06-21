@@ -4,9 +4,8 @@ from enum import Enum
 class Constraint(metaclass=ABCMeta):
     @property
     @abstractmethod
-    def springer_metadata_expression(self) -> str:
+    def _springer_metadata_expression(self) -> str:
         pass
-
 
 class Atomic(Constraint, metaclass=ABCMeta):
     pass
@@ -18,7 +17,7 @@ class Logical(Constraint, metaclass=ABCMeta):
 class Expression(Constraint):
     contained: Logical
 
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
 
 class EqualsField(Enum):
@@ -28,7 +27,7 @@ class Equals(Atomic):
     field: EqualsField
     value: str
 
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
 
 class ContainsField(Enum):
@@ -38,7 +37,7 @@ class Contains(Atomic):
     field: ContainsField
     value: str
 
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
 
 class SortField(Enum):
@@ -47,13 +46,13 @@ class SortField(Enum):
 class Sort(Atomic):
     field: SortField
 
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
 
 class And(Logical):
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
 
 class Or(Logical):
-    def springer_metadata_expression(self):
+    def _springer_metadata_expression(self):
         pass
