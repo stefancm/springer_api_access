@@ -27,7 +27,21 @@ class Expression(Constraint):
     def _springer_metadata_expression(self):
         pass
 
+class And(Logical):
+    def _springer_metadata_expression(self):
+        pass
+
+class Or(Logical):
+    def _springer_metadata_expression(self):
+        pass
+
 class EqualsField(Enum):
+    pass
+
+class ContainsField(Enum):
+    pass
+
+class SortField(Enum):
     pass
 
 class Equals(Atomic):
@@ -41,9 +55,6 @@ class Equals(Atomic):
     def _springer_metadata_expression(self):
         pass
 
-class ContainsField(Enum):
-    pass
-
 class Contains(Atomic):
     __field: ContainsField
     __value: str
@@ -55,23 +66,12 @@ class Contains(Atomic):
     def _springer_metadata_expression(self):
         pass
 
-class SortField(Enum):
-    pass
-
 class Sort(Atomic):
     __field: SortField
 
     def __init__(self, field: SortField):
         self.__field = field
 
-    def _springer_metadata_expression(self):
-        pass
-
-class And(Logical):
-    def _springer_metadata_expression(self):
-        pass
-
-class Or(Logical):
     def _springer_metadata_expression(self):
         pass
 
